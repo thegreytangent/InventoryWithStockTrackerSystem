@@ -54,7 +54,7 @@
     <div class="az-card-signin">
         <h1 class="app-logo text-center">Inventory With Stock Tracker System</h1>
         <div class="az-signin-header">
-
+            @include('template.alert')
             <form action="/login" method="POST">
                 {{ csrf_field() }}
                 <div class="form-group">
@@ -68,10 +68,7 @@
                 <button type="submit" class="btn btn-az-primary btn-block">Sign In</button>
             </form>
         </div><!-- az-signin-header -->
-        <div class="az-signin-footer">
-            <p><a href="">Forgot password?</a></p>
-            <p>Don't have an account? <a href="page-signup.html">Create an Account</a></p>
-        </div><!-- az-signin-footer -->
+
     </div><!-- az-card-signin -->
 </div><!-- az-signin-wrapper -->
 

@@ -9,7 +9,10 @@
                 </div><!-- az-header-menu-header -->
                 <ul class="nav">
                     <li class="nav-item active show">
-                        <a href="index.html" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+                        <a href="/dashboard" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item active show">
+                        <a href="/category" class="nav-link"><i class="typcn typcn-chart-area-outline"></i>Categories</a>
                     </li>
 
                 </ul>
