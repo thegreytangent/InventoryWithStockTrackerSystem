@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="az-content-body">
-        asdfd
+        <h3>Under Development</h3>
     </div>
 
 @endsection
