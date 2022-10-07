@@ -1,79 +1,62 @@
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield("title", "Health Monitoring of Barangay Igmaya-an Local Health Center")</title>
 
-        gtag('config', 'UA-90680653-2');
-    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset("assets/css/bootstrap.css")}}">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="author" content="BootstrapDash">
-
-    <title>Azia Responsive Bootstrap 4 Dashboard Template</title>
-
-    <!-- vendor css -->
-    <link href="{{asset('assets/lib/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/lib/typicons.font/typicons.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/lib/flag-icon-css/css/flag-icon.min.css')}}" rel="stylesheet">
-
-
-    <!-- azia CSS -->
-    <link href="{{asset('assets/css/azia.css')}}" rel="stylesheet">
-
-    <style>
-        .app-logo {
-            font-weight: 700;
-            font-size: 28px;
-            font-family: 'Poppins', sans-serif;
-            color: #5b47fb;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            top: -2px;
-        }
-        .header-center {
-            margin: auto;
-            width: 40%;
-            /*border: 3px solid green;*/
-            padding: 10px;
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="{{asset("assets/vendors/perfect-scrollbar/perfect-scrollbar.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/vendors/bootstrap-icons/bootstrap-icons.css")}}">
+    <link rel="stylesheet" href=" {{asset("assets/css/app.css")}}">
+    <link rel="shortcut icon" href="{{asset("assets/images/favicon.svg")}}" type="image/x-icon">
+    <script src="{{asset("assets/js/jquery.js")}}"></script>
+    @yield("styles")
+    @stack('styles')
 </head>
+
 <body>
+<div id="app">
+    <div id="sidebar" class="active">
+        <div class="sidebar-wrapper active">
+            {{-- <div class="sidebar-header">
+              <div class="d-flex justify-content-between">
+                <div class="logo">
+                  <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                </div>
+                <div class="toggler">
+                  <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+              </div>
+            </div> --}}
 
-@include('template.header')
-
-@include('template.navigation')
-
-<div class="az-content az-content-dashboard">
-    <div class="container">
-        @yield('content')
+            @include("template.sidebar")
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+        </div>
     </div>
-</div><!-- az-content -->
+    <div id="main" class='layout-navbar'>
+        @include("template.navbar")
+        <div id="main-content">
 
-<div class="az-footer ht-40">
-    <div class="container ht-100p pd-t-0-f">
-
-    </div><!-- container -->
-</div><!-- az-footer -->
+            @yield("content")
 
 
-<script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('assets/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/lib/ionicons/ionicons.js')}}"></script>
+        </div>
+    </div>
+</div>
+<script src="{{asset("assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js")}}"></script>
+<script src="{{asset("assets/js/bootstrap.bundle.min.js")}}"></script>
 
-<script src="{{asset('assets/js/azia.js')}}"></script>
+<script src="assets/js/main.js"></script>
+
+
 </body>
+
+@stack('scripts')
+
 </html>

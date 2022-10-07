@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="az-content-body">
+    <div class="col-span-12 mt-8">
         <h3>Under Development</h3>
     </div>
 

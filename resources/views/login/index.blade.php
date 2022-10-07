@@ -1,88 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-90680653-2');
-    </script>
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="author" content="BootstrapDash">
-
-    <title>Inventory With Stock Tracker System </title>
-
-    <!-- vendor css -->
-
-    <link href="{{asset('assets/lib/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('assets/lib/typicons.font/typicons.css')}}" rel="stylesheet">
-
-    <!-- azia CSS -->
-    <link href="{{asset('assets/css/azia.css')}}" rel="stylesheet">
-
-    <style>
-        .app-logo {
-            font-weight: 700;
-            font-size: 28px;
-            font-family: 'Poppins', sans-serif;
-            color: #5b47fb;
-            letter-spacing: -1px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            top: -2px;
-        }
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login -  Inventory With Stock Tracker System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/pages/auth.css">
 </head>
-<body class="az-body">
 
-<div class="az-signin-wrapper">
-    <div class="az-card-signin">
-        <h1 class="app-logo text-center">Inventory With Stock Tracker System</h1>
-        <div class="az-signin-header">
-            @include('template.alert')
-            <form action="/login" method="POST">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label>Username:</label>
-                    <input name="username" type="text" class="form-control" />
-                </div><!-- form-group -->
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" name="password" class="form-control" />
-                </div><!-- form-group -->
-                <button type="submit" class="btn btn-az-primary btn-block">Sign In</button>
-            </form>
-        </div><!-- az-signin-header -->
+<body>
+<div id="auth">
 
-    </div><!-- az-card-signin -->
-</div><!-- az-signin-wrapper -->
+    <div class="row h-100">
+        <div class="col-lg-5 col-12">
+            <div id="auth-left">
+                <h2 class="text-center">Inventory With Stock Tracker System</h2>
+                <br>
+{{--                <img style="height: 10rem;margin-left: -4rem" src="{{asset("assets/images/logo/logo2.png")}}" alt="Logo">--}}
+                <h2 class="text-center"> LOGIN</h2>
+
+                <p class="auth-subtitle mb-5"></p>
+
+                {!! Form::open(['url' => 'login', 'method' => 'post']);  !!}
+
+                @include('template.alert')
+                <div class="form-group position-relative has-icon-left mb-4">
+
+                    {!! Form::text('username',null, ['class' => 'form-control form-control-xl']) !!}
+                    <div class="form-control-icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                </div>
+                <div class="form-group position-relative has-icon-left mb-4">
+                    {!! Form::password('password', ['class' => 'form-control form-control-xl']) !!}
+
+                    <div class="form-control-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                </div>
+
+                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block btn-lg shadow-lg mt-5']);  !!}
+                {!! Form::close() !!}
+
+            </div>
+        </div>
+        <div class="col-lg-7 d-none d-lg-block">
+            {{--            <img src="{{asset("assets/images/bg/login.jpg")}}" alt="" style="    top: 0;--}}
+            {{--    left: 0;--}}
+            {{--    min-width: 100%;--}}
+            {{--    min-height: 100%;">--}}
 
 
-<script src="{{asset('assets/lib/jquery/jquery.min.js')}}"></script>
-<script src="{{asset('assets/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.cookie.js')}}"></script>
-<script src="{{asset('assets/js/jquery.cookie.js')}}"></script>
-<script src="{{asset('assets/js/azia.js')}}"></script>
-<script>
-    $(function () {
-        'use strict'
+            <img src="{{asset("assets/images/login.jpg")}}" alt="" style="top: 0;
+            height: 50px;
+            width: 50px;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;">
 
-    });
-</script>
+
+        </div>
+    </div>
+
+</div>
 </body>
+
 </html>
