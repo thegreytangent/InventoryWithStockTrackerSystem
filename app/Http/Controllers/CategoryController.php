@@ -3,6 +3,7 @@
     namespace App\Http\Controllers;
 
     use App\Models\StockCategory;
+    use Illuminate\Http\JsonResponse;
     use Illuminate\Http\RedirectResponse;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Session;
@@ -63,7 +64,7 @@
             return redirect('category')->with('alert-info', 'Record has been updated.');
         }
 
-        public function destroy($id) {
+        public function destroy($id) : JsonResponse {
 
             $category = StockCategory::find($id);
 
