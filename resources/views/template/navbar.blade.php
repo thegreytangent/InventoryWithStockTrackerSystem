@@ -51,12 +51,6 @@
                             <h6 class="dropdown-header">Hello,Admin</h6>
                             <hr class="dropdown-divider">
                         </li>
-                        <li>
-                            <a href="/info-graphics">
-                                <h6 class="dropdown-header">Announcements</h6>
-                            </a>
-                            <hr class="dropdown-divider">
-                        </li>
 
                         <li><a class="dropdown-item" href="/logout">
                                 <i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>

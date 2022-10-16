@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="{{asset("assets/vendors/choices.js/choices.min.css")}}"/>
     @endpush
 
-
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
