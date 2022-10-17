@@ -22,5 +22,11 @@ Route::namespace('App\Http\Controllers')->group(function($route){
 
     Route::post('/login','AuthController@login');
 
+    Route::get('/incoming','IncomingController@index');
+
+    Route::delete('/incoming/{id}','IncomingController@destroy');
+
+    Route::get('/outgoing','OutgoingController@index');
+
 });
 
