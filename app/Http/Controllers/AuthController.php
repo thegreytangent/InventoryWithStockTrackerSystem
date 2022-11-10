@@ -40,7 +40,7 @@
 
             Auth::login($user);
 
-            return redirect('category');
+            return redirect('dashboard  ');
 
         }
 

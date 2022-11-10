@@ -26,8 +26,6 @@
                 $category[] = $item->item_name;
             }
 
-
-
             return view('dashboard.index')->with([
                 'number_of_categories' => $noOfCategories,
                 'number_of_items'      => $noOfItems,

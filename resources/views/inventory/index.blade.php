@@ -23,13 +23,30 @@
 
                             <div class="row" id="table-bordered">
                                 <div class="col-12">
+                                    <div class="row">
+{{--                                      
+                                            <div class="col-md-8">
+dfd
+                                            </div>
+                                            <div class="col-md-4">
+                                                {!! Form::text('track_code',null, ['class' => 'form-control', 'placeholder' => 'Search by Tracker Code']) !!}
+                                            </div>
+                                    </div>
                                     <div class="card">
                                         <div class="card-content">
+
+
+
+
+
+
+
                                             <!-- table bordered -->
                                             <div class="table-responsive">
                                                 <table class="table table-striped text-center" id="table1">
                                                     <thead>
                                                     <tr>
+                                                        <th class="text-center">Tracking Code</th>
                                                         <th class="text-center">Item</th>
                                                         <th class="text-center">Category</th>
                                                         <th class="text-center">Balance</th>
@@ -41,6 +58,7 @@
                                                     <tbody>
                                                     @foreach($items as $item)
                                                         <tr>
+                                                            <td>{{$item->track_code}}</td>
                                                             <td>{{$item->item_name}}</td>
                                                             <td>
                                                                 {{$item->getCategory()}}
@@ -179,7 +197,7 @@
                             <span class="d-none d-sm-block">Close</span>
                         </button>
                         <button
-                            type="button"
+                            type="submit"
                             class="btn btn-primary ml-1"
                             data-bs-dismiss="modal"
                         >
@@ -199,14 +217,8 @@
     <script>
         $(document).ready(function () {
 
-            $(".inventory_record").click(function () {
-                const id = $(this).attr('data-id');
-                $("#item_id").val(id);
-                $("#exampleModalCenter").modal('show');
-            });
-
-
-            $('#submit_inventory').click(function () {
+            $('#submit_inventory').submit(function (e) {
+                e.preventDefault();
                 $.ajax({
                     url: 'inventory',
                     type: 'POST',
@@ -216,6 +228,13 @@
                         location.reload();
                     }
                 });
+            });
+
+
+            $(".inventory_record").click(function () {
+                const id = $(this).attr('data-id');
+                $("#item_id").val(id);
+                $("#exampleModalCenter").modal('show');
             });
 
 

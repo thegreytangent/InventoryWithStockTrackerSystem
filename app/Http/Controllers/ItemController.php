@@ -16,7 +16,7 @@
 
         public function index(): View
         {
-            $items = StockItem::with(['StockCategory'])->paginate(5);
+            $items = StockItem::with(['StockCategory'])->paginate(10);
 
             return view('item.index')->with([
                 'items' => $items
@@ -33,6 +33,7 @@
         public function store(Request $request): RedirectResponse
         {
             $val = Validator::make($request->all(), [
+                'track_code'  => 'required',
                 'item_name'   => 'required',
                 'category_id' => 'required'
             ]);
@@ -42,6 +43,7 @@
             }
 
             StockItem::create([
+                'track_code'        => $request->input('track_code'),
                 'stock_category_id' => $request->input('category_id'),
                 'item_name'         => $request->input('item_name')
             ]);
@@ -60,6 +62,7 @@
         public function update(Request $request, $id): JsonResponse|RedirectResponse
         {
             $val = Validator::make($request->all(), [
+                'track_code'  => 'required',
                 'item_name'   => 'required',
                 'category_id' => 'required'
             ]);
@@ -69,6 +72,7 @@
             }
 
             StockItem::find($id)->update([
+                'track_code'        => $request->input('track_code'),
                 'stock_category_id' => $request->input('category_id'),
                 'item_name'         => $request->input('item_name')
             ]);

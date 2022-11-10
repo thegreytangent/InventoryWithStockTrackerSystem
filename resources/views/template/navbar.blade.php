@@ -1,3 +1,4 @@
+
 <header class='mb-3'>
 
     <nav class="navbar navbar-expand navbar-light ">
@@ -15,7 +16,7 @@
             <div class="container d-block">
 
                 <a class="navbar-brand ms-4" href="#" style="font-size: 3.25rem">
-{{--                    <img src="{{asset("assets/images/logo/logo.jpg")}}" style="height: 5.5rem;float: left">--}}
+                    {{--                    <img src="{{asset("assets/images/logo/logo.jpg")}}" style="height: 5.5rem;float: left">--}}
 
                     <span style="margin-top: 13px">
                       <h4 style="display: inline; margin-top: 13px">
@@ -36,19 +37,19 @@
                     <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="user-menu d-flex">
                             <div class="user-name text-end me-3">
-                                <h6 class="mb-0 text-gray-600">Admin</h6>
+                                <h6 class="mb-0 text-gray-600">{{ucfirst($user?->username)}}</h6>
 
                             </div>
                             <div class="user-img d-flex align-items-center">
                                 <div class="avatar avatar-md">
-                                    <img src="{{asset("assets/images/profile_pic/no_pic.jpg")}}">
+                                    <img src="{{asset("assets/images/profile_pic/no_pic.jpg")}}"/>
                                 </div>
                             </div>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <li>
-                            <h6 class="dropdown-header">Hello,Admin</h6>
+                            <h6 class="dropdown-header">Hello, {{ucfirst($user?->username)}}</h6>
                             <hr class="dropdown-divider">
                         </li>
 

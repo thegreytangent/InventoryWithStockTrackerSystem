@@ -9,7 +9,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Add Stock Category Records</h3>
+                    <h3>Update Stock Category Records</h3>
                     <p class="text-subtitle text-muted">&nbsp;</p>
                 </div>
 

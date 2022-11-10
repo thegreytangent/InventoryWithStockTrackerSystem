@@ -10,7 +10,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Update Stock Item Record</h3>
+                    <h3>Add User Record</h3>
                     <p class="text-subtitle text-muted">&nbsp;</p>
                 </div>
 
@@ -27,9 +27,10 @@
 
                             @include('template.alert')
 
-                            {!! Form::open([
-                            'url' => 'item/' . $item->id,
-                            'method' => 'PUT',
+                            {!! Form::open(
+                        [
+                            'url' => 'users',
+                            'method' => 'POST',
                             'class' => 'form form-horizontal'
                             ])  !!}
 
@@ -38,35 +39,54 @@
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label>Tracking Code:</label>
+                                            <label>Username:</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            {!! Form::text('track_code',$item->track_code, ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label>Item Name:</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            {!! Form::text('item_name',$item->item_name, ['class' => 'form-control']) !!}
+                                            {!! Form::text('username',null, ['class' => 'form-control']) !!}
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label>Select Category:</label>
+                                            <label>Password:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::password('password', ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Firstname:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::text('firstname',null, ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Lastname:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::text('lastname',null, ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Role:</label>
                                         </div>
                                         <div class="col-md-8 form-group">
 
                                             {!!
-                                            Form::select('category_id', $categories, $item->stock_category_id, [
-                                             'class' => 'form-control'
-                                             ]);
-							                !!}
+                                             Form::select('role', [
+												 'admin' => 'Admin',
+												  'stocks_personnel' => 'Stocks Personnel'
+												 ], null, [
+                                              'class' => 'form-control'
+                                              ]);
+                                             !!}
 
                                         </div>
                                     </div>

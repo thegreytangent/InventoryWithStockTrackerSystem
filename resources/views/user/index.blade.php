@@ -1,12 +1,12 @@
 @extends("template.main")
-@section("title", "Dashboard")
+@section("title", "Manage User")
 @section("content")
 
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Stock Items Record</h3>
+                    <h4>Manage Users Record</h4>
                     <p class="text-subtitle text-muted">&nbsp;</p>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                     <div class="card">
                         <div class="card-header">
 
-                            <a href="item/create" type="button" class="btn btn-success btn-sm">
+                            <a href="users/create" type="button" class="btn btn-sm btn-success">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-plus-square" viewBox="0 0 16 16">
                                     <path
@@ -26,7 +26,7 @@
                                     <path
                                         d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
                                 </svg>
-                                Add Stock Item
+                                Add User
                             </a>
 
 
@@ -44,22 +44,26 @@
                                                 <table class="table table-striped text-center" id="table1">
                                                     <thead>
                                                     <tr>
-                                                        <th class="text-center">Item Name</th>
-                                                        <th class="text-center">Category</th>
+                                                        <th class="text-center">Complete Name</th>
+                                                        <th class="text-center">Username</th>
+                                                        <th class="text-center">Role</th>
                                                         <th class="text-center">Action</th>
 
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    @foreach($items as $item)
+                                                    @foreach($users as $user)
                                                         <tr>
-                                                            <td>{{$item->item_name}}</td>
+                                                            <td>{{$user->getCompleteName()}}</td>
                                                             <td>
-                                                                {{$item->getCategory()}}
+                                                                {{$user->getUsername()}}
                                                             </td>
                                                             <td>
-                                                                <a href="item/{{$item->id}}" type="button"
-                                                                   class="btn btn-primary btn-sm">
+                                                                {{$user->getRole()}}
+                                                            </td>
+                                                            <td>
+                                                                <a href="users/{{$user->id}}" type="button"
+                                                                   class="btn btn-sm btn-primary">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                          height="16" fill="currentColor"
                                                                          class="bi bi-pencil-square"
@@ -72,7 +76,7 @@
                                                                     Edit
                                                                 </a>
 
-                                                                <button id="{{$item->id}}" type="button"
+                                                                <button id="{{$user->id}}" type="button"
                                                                         class="btn btn-sm btn-danger button_delete">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                                                          height="16" fill="currentColor"
@@ -90,7 +94,7 @@
 
                                                 </table>
                                                 <div class="d-flex justify-content-center">
-                                                    {!! $items->links() !!}
+{{--                                                    {!! $items->links() !!}--}}
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +120,7 @@
                 if (confirm("Are you sure you want to delete this?")) {
                     let id = $(this).attr("id");
                     $.ajax({
-                        url: `item/${id}`,
+                        url: `users/${id}`,
                         type: 'DELETE',
                         data: {
                             "_token": "{{ csrf_token() }}",

@@ -28,7 +28,7 @@
                             @include('template.alert')
 
                             {!! Form::open([
-                            'url' => 'item/' . $item->id,
+                            'url' => 'users/' . $user->id,
                             'method' => 'PUT',
                             'class' => 'form form-horizontal'
                             ])  !!}
@@ -38,35 +38,54 @@
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label>Tracking Code:</label>
+                                            <label>Username:</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            {!! Form::text('track_code',$item->track_code, ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label>Item Name:</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            {!! Form::text('item_name',$item->item_name, ['class' => 'form-control']) !!}
+                                            {!! Form::text('username',$user->username, ['class' => 'form-control']) !!}
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label>Select Category:</label>
+                                            <label>Password:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::password('password', ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Firstname:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::text('firstname',$user->getFirstname(), ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Lastname:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::text('lastname',$user->getLastname(), ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Role:</label>
                                         </div>
                                         <div class="col-md-8 form-group">
 
                                             {!!
-                                            Form::select('category_id', $categories, $item->stock_category_id, [
-                                             'class' => 'form-control'
-                                             ]);
-							                !!}
+                                             Form::select('role', [
+												 'admin' => 'Admin',
+												  'stocks_personnel' => 'Stocks Personnel'
+												 ], $user->role, [
+                                              'class' => 'form-control'
+                                              ]);
+                                             !!}
 
                                         </div>
                                     </div>

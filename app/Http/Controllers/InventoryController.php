@@ -46,7 +46,7 @@
 
         public function index(): View
         {
-            $items = StockItem::with(['StockCategory', 'Inventory'])->paginate(5);
+            $items = StockItem::with(['StockCategory', 'Inventory'])->paginate(10);
 
             return view('inventory.index')->with([
                 'items'         => $items,

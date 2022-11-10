@@ -39,6 +39,15 @@
 
                                     <div class="row">
                                         <div class="col-md-4">
+                                            <label>Tracking Code:</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            {!! Form::text('track_code',null, ['class' => 'form-control']) !!}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <label>Item Name:</label>
                                         </div>
                                         <div class="col-md-8 form-group">

@@ -28,5 +28,8 @@ Route::namespace('App\Http\Controllers')->group(function($route){
 
     Route::get('/outgoing','OutgoingController@index');
 
+    Route::resource('/users','UserController');
+//    Route::get('/users','UserController@index');
+
 });
 
